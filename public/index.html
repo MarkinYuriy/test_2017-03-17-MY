@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <title>test</title>
+
+    <script src="bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="bower_components/angular/angular.min.js" data-semver="1.0.8"></script>
+    <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap-theme.css">
+</head>
+<body>
+<p></p>
+<h1>Please register script before execute</h1>
+<div ng-app="myModule" ng-controller="myCtrl">
+    <div class="row">
+        <div class="col-md-1"></div>
+        <div class="col-md-1"></div>
+        <div class="col-md-4">Script name</div>
+        <div class="col-md-4">Result</div>
+    </div>
+    <div class="row" ng-repeat="item in scripts">
+        <div class="col-md-1">
+            <button type="button" class="btn btn-primary" ng-model="singleModel" ng-click="registerTougle($index)">
+                {{item.btnTextRegister}}
+            </button>
+        </div>
+        <div class="col-md-1">
+            <button type="button" class="btn btn-primary"
+                    ng-model="singleModel" ng-click="execScript($index)" ng-disabled="!scripts[$index].isRegister">
+                {{item.btnTextExec}}
+            </button>
+        </div>
+        <div class="col-md-4">{{item.name}}</div>
+        <div class="col-md-4">{{item.result}}</div>
+    </div>
+</div>
+<script src="script.js">
+
+</script>
+</body>
+</html>
